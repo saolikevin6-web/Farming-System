@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management System - Tracking</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <a href="farmers.html" class="logo">
+            🌱 FarmTrack
+        </a>
+
+        <nav>
+            <a href="farmers.html">Farmers</a>
+            <a href="sales.html">Sales</a>
+            <a href="tracking.html" class="active">Tracking</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Header -->
+        <section class="page-header">
+            <h1>Produce Tracking</h1>
+            <p>Track agricultural produce from the farm to the final destination.</p>
+        </section>
+
+        <!-- Tracking Statistics -->
+        <section class="cards">
+
+            <div class="card">
+                <div class="card-icon">🚚</div>
+                <div>
+                    <h3 id="statActiveDeliveries">0</h3>
+                    <p>Active Deliveries</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <div>
+                    <h3 id="statInTransitKg">0 KG</h3>
+                    <p>In Transit</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">✅</div>
+                <div>
+                    <h3 id="statDeliveredCount">0</h3>
+                    <p>Delivered</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Tracking Form -->
+        <section class="content-box">
+
+            <h2>Add Tracking Record</h2>
+
+            <div id="trackingAlert" class="alert"></div>
+
+            <form id="trackingForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="trackingId">Tracking ID</label>
+                        <input
+                            type="text"
+                            id="trackingId"
+                            name="trackingId"
+                            placeholder="e.g. TR001"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trackFarmer">Farmer</label>
+                        <select id="trackFarmer" name="farmer" required>
+                            <option value="" disabled selected>Select farmer (Register farmers first)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trackProduce">Produce</label>
+                        <select id="trackProduce" name="produce" required>
+                            <option value="" disabled selected>Select produce</option>
+                            <option value="Maize">Maize</option>
+                            <option value="Beans">Beans</option>
+                            <option value="Potatoes">Potatoes</option>
+                            <option value="Wheat">Wheat</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Tomatoes">Tomatoes</option>
+                            <option value="Onions">Onions</option>
+                            <option value="Cabbage / Kale">Cabbage / Kale (Sukuma Wiki)</option>
+                            <option value="Coffee">Coffee</option>
+                            <option value="Tea">Tea</option>
+                            <option value="Sugarcane">Sugarcane</option>
+                            <option value="Avocados">Avocados</option>
+                            <option value="Bananas">Bananas</option>
+                            <option value="Mangoes">Mangoes</option>
+                            <option value="Macadamia">Macadamia</option>
+                            <option value="Sorghum / Millet">Sorghum / Millet</option>
+                            <option value="Rice">Rice</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trackQuantity">Quantity (KG)</label>
+                        <input
+                            type="number"
+                            id="trackQuantity"
+                            name="quantity"
+                            placeholder="KG"
+                            min="0.5"
+                            step="any"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentLocation">Current Location</label>
+                        <input
+                            type="text"
+                            id="currentLocation"
+                            name="location"
+                            placeholder="Current dispatch / transit point"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input
+                            type="text"
+                            id="destination"
+                            name="destination"
+                            placeholder="Final market / factory destination"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trackStatus">Status</label>
+                        <select id="trackStatus" name="status" required>
+                            <option value="" disabled selected>Select status</option>
+                            <option value="Processing">Processing</option>
+                            <option value="In Transit">In Transit</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn">
+                    + Add Tracking
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Tracking Table -->
+        <section class="content-box">
+
+            <h2>Current Deliveries</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Tracking ID</th>
+                            <th>Farmer</th>
+                            <th>Produce</th>
+                            <th>Quantity</th>
+                            <th>Location</th>
+                            <th>Destination</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="trackingTableBody">
+
+                        <tr class="empty-row">
+                            <td colspan="8">No delivery records yet. Add a tracking record above.</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 FarmTrack Management System</p>
+    </footer>
+
+</body>
+</html>

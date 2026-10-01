@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management System - Farmers</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <a href="farmers.html" class="logo">
+            🌱 FarmTrack
+        </a>
+
+        <nav>
+            <a href="farmers.html" class="active">Farmers</a>
+            <a href="sales.html">Sales</a>
+            <a href="tracking.html">Tracking</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <section class="page-header">
+            <h1>Farmers Management</h1>
+            <p>Register and manage real farmers and their agricultural information.</p>
+        </section>
+
+        <!-- Statistics -->
+        <section class="cards">
+
+            <div class="card">
+                <div class="card-icon">👨‍🌾</div>
+                <div>
+                    <h3 id="statTotalFarmers">0</h3>
+                    <p>Registered Farmers</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌽</div>
+                <div>
+                    <h3 id="statActiveFarms">0</h3>
+                    <p>Active Farms</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌾</div>
+                <div>
+                    <h3 id="statTotalArea">0 Acres</h3>
+                    <p>Total Farm Area</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Farmer Registration Form -->
+        <section class="content-box">
+
+            <h2>Register New Farmer</h2>
+
+            <div id="farmerAlert" class="alert"></div>
+
+            <form id="farmerForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="farmerId">National ID / Farmer ID</label>
+                        <input type="text" id="farmerId" name="farmerId" placeholder="e.g. 12345678 or F001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="farmerName">Full Name</label>
+                        <input type="text" id="farmerName" name="farmerName" placeholder="Enter farmer's full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="farmerPhone">Phone Number</label>
+                        <input type="tel" id="farmerPhone" name="farmerPhone" placeholder="07XXXXXXXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="farmerLocation">Location / County / Ward</label>
+                        <input type="text" id="farmerLocation" name="farmerLocation" placeholder="e.g. Nakuru, Njoro" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="farmSize">Farm Size (Acres)</label>
+                        <input type="number" id="farmSize" name="farmSize" placeholder="Acres" min="0.1" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mainCrop">Main Crop</label>
+                        <select id="mainCrop" name="mainCrop" required>
+                            <option value="" disabled selected>Select crop</option>
+                            <option value="Maize">Maize</option>
+                            <option value="Beans">Beans</option>
+                            <option value="Potatoes">Potatoes</option>
+                            <option value="Wheat">Wheat</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Tomatoes">Tomatoes</option>
+                            <option value="Onions">Onions</option>
+                            <option value="Cabbage / Kale">Cabbage / Kale (Sukuma Wiki)</option>
+                            <option value="Coffee">Coffee</option>
+                            <option value="Tea">Tea</option>
+                            <option value="Sugarcane">Sugarcane</option>
+                            <option value="Avocados">Avocados</option>
+                            <option value="Bananas">Bananas</option>
+                            <option value="Mangoes">Mangoes</option>
+                            <option value="Macadamia">Macadamia</option>
+                            <option value="Sorghum / Millet">Sorghum / Millet</option>
+                            <option value="Rice">Rice</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn">
+                    + Register Farmer
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Farmers Table -->
+        <section class="content-box">
+
+            <h2>Registered Farmers</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>National ID / Farmer ID</th>
+                            <th>Farmer Name</th>
+                            <th>Phone</th>
+                            <th>Location</th>
+                            <th>Farm Size</th>
+                            <th>Crop</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="farmersTableBody">
+
+                        <tr class="empty-row">
+                            <td colspan="7">No registered farmers yet. Add your first farmer above.</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 FarmTrack Management System</p>
+    </footer>
+
+</body>
+</html>

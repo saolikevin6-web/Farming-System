@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management System - Sales</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <a href="farmers.html" class="logo">
+            🌱 FarmTrack
+        </a>
+
+        <nav>
+            <a href="farmers.html">Farmers</a>
+            <a href="sales.html" class="active">Sales</a>
+            <a href="tracking.html">Tracking</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1>Sales Management</h1>
+            <p>Record and monitor agricultural produce sales.</p>
+        </section>
+
+        <!-- Sales Statistics -->
+        <section class="cards">
+
+            <div class="card">
+                <div class="card-icon">💰</div>
+                <div>
+                    <h3 id="statTotalSales">KSh 0</h3>
+                    <p>Total Sales</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🛒</div>
+                <div>
+                    <h3 id="statCompletedSales">0</h3>
+                    <p>Completed Sales</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <div>
+                    <h3 id="statProduceSold">0 KG</h3>
+                    <p>Produce Sold</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Sales Form -->
+        <section class="content-box">
+
+            <h2>Record New Sale</h2>
+
+            <div id="saleAlert" class="alert"></div>
+
+            <form id="saleForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="saleId">Sale ID</label>
+                        <input
+                            type="text"
+                            id="saleId"
+                            name="saleId"
+                            placeholder="e.g. S001"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="farmerSelect">Farmer</label>
+                        <select id="farmerSelect" name="farmer" required>
+                            <option value="" disabled selected>Select farmer (Register farmers first)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="produceSelect">Produce</label>
+                        <select id="produceSelect" name="produce" required>
+                            <option value="" disabled selected>Select produce</option>
+                            <option value="Maize">Maize</option>
+                            <option value="Beans">Beans</option>
+                            <option value="Potatoes">Potatoes</option>
+                            <option value="Wheat">Wheat</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Tomatoes">Tomatoes</option>
+                            <option value="Onions">Onions</option>
+                            <option value="Cabbage / Kale">Cabbage / Kale (Sukuma Wiki)</option>
+                            <option value="Coffee">Coffee</option>
+                            <option value="Tea">Tea</option>
+                            <option value="Sugarcane">Sugarcane</option>
+                            <option value="Avocados">Avocados</option>
+                            <option value="Bananas">Bananas</option>
+                            <option value="Mangoes">Mangoes</option>
+                            <option value="Macadamia">Macadamia</option>
+                            <option value="Sorghum / Millet">Sorghum / Millet</option>
+                            <option value="Rice">Rice</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="saleQuantity">Quantity (KG)</label>
+                        <input
+                            type="number"
+                            id="saleQuantity"
+                            name="quantity"
+                            placeholder="Enter quantity"
+                            min="0.5"
+                            step="any"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="salePrice">Price per KG (KSh)</label>
+                        <input
+                            type="number"
+                            id="salePrice"
+                            name="price"
+                            placeholder="Enter price"
+                            min="0.5"
+                            step="any"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buyerName">Buyer</label>
+                        <input
+                            type="text"
+                            id="buyerName"
+                            name="buyer"
+                            placeholder="Enter buyer / company name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="saleDate">Sale Date</label>
+                        <input type="date" id="saleDate" name="saleDate" required>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn">
+                    + Record Sale
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Sales Table -->
+        <section class="content-box">
+
+            <h2>Recent Sales</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Sale ID</th>
+                            <th>Date</th>
+                            <th>Farmer</th>
+                            <th>Produce</th>
+                            <th>Quantity</th>
+                            <th>Price/KG</th>
+                            <th>Total</th>
+                            <th>Buyer</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="salesTableBody">
+
+                        <tr class="empty-row">
+                            <td colspan="9">No sales recorded yet. Record a new sale above.</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 FarmTrack Management System</p>
+    </footer>
+
+</body>
+</html>
